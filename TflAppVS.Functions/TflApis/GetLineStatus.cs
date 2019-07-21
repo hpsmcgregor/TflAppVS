@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using RestSharp;
 using System.Configuration;
+using System.Linq;
 
 namespace TflAppVS.Functions.TflApis
 {
     public class GetLineStatus
     {
         //private readonly string _apiEndPoint = "https://api.tfl.gov.uk/line/mode/tube/status?detail=true";
-        private readonly string _apiEndPoint = "https://api.tfl.gov.uk/line/mode/tube,overground,dlr,tflrail/status";
+        private static readonly string _apiEndPoint = "https://api.tfl.gov.uk/line/mode/tube,overground,dlr,tflrail/status";
 
-
-        public GetLineStatus()
+        public static List<LineStatusDto> GetStatuses()
         {
             var config = new Configuration.Configuration("../local.settings.json").AppSettings;
             var client = new RestClient(_apiEndPoint);
@@ -22,19 +22,19 @@ namespace TflAppVS.Functions.TflApis
             request.AddQueryParameter("app_key", config["app_key"]);
             var response = (RestResponse)client.Execute(request);
             var content = response.Content;
-            //var tflResponse = JsonConvert.DeserializeObject<List<TflLineInfo>>(content);
+            var tflResponse = JsonConvert.DeserializeObject<List<TflDtos.TflLineInfo>>(content);
 
-            //var lineInfoList = tflResponse.Select(t =>
-            //    new LineInfo()
-            //    {
-            //        Id = t.id,
-            //        Name = t.name,
-            //        Reason = t.lineStatuses[0].reason,
-            //        StatusSeverityDescription = t.lineStatuses[0].statusSeverityDescription,
-            //        StatusSeverity = t.lineStatuses[0].statusSeverity
-            //    }).ToList();
+            var lineInfoList = tflResponse.Select(t =>
+                new LineStatusDto()
+                {
+                    Id = t.id,
+                    Name = t.name,
+                    Reason = t.lineStatuses[0].reason,
+                    StatusSeverityDescription = t.lineStatuses[0].statusSeverityDescription,
+                    StatusSeverity = t.lineStatuses[0].statusSeverity
+                }).ToList();
 
-            //return lineInfoList;
+            return lineInfoList;
         }
     }
 }

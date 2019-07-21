@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using Newtonsoft.Json;
 
 namespace TflAppVS.Configuration
@@ -16,7 +17,8 @@ namespace TflAppVS.Configuration
         {
             get
             {
-                var settingsFile = JsonConvert.DeserializeObject<Dictionary<string, string>>(_filePath);
+                var jsonFile = File.ReadAllText(_filePath);
+                var settingsFile = JsonConvert.DeserializeObject<Dictionary<string, string>>(jsonFile);
                 return settingsFile;
             }
         }
