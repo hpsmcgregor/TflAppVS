@@ -10,8 +10,6 @@ autom4te.cache/
 *.tar.gz
 tarballs/
 test-results/
-
-# manually added
 local.settings.json
 
 # Mac bundle stuff
