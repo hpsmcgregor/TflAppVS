@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TflAppVS.Functions", "TflAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TflAppVS.Configuration", "TflAppVS.Configuration\TflAppVS.Configuration.csproj", "{916C460B-E384-4462-9491-8F5B99D6EE6D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TflAppVS.WebApp", "TflAppVS.WebApp\TflAppVS.WebApp.csproj", "{13E61B47-66EF-4F0E-939A-FC9270E740C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,5 +21,9 @@ Global
 		{916C460B-E384-4462-9491-8F5B99D6EE6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{916C460B-E384-4462-9491-8F5B99D6EE6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{916C460B-E384-4462-9491-8F5B99D6EE6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13E61B47-66EF-4F0E-939A-FC9270E740C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13E61B47-66EF-4F0E-939A-FC9270E740C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13E61B47-66EF-4F0E-939A-FC9270E740C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13E61B47-66EF-4F0E-939A-FC9270E740C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
