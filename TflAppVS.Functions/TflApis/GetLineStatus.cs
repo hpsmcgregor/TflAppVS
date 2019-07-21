@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 using RestSharp;
-using System.Configuration;
 using System.Linq;
 
 namespace TflAppVS.Functions.TflApis
@@ -14,7 +12,7 @@ namespace TflAppVS.Functions.TflApis
 
         public static List<LineStatusDto> GetStatuses()
         {
-            var config = new Configuration.Configuration("../local.settings.json").AppSettings;
+            var config = new Configuration.Configuration("../netcoreapp2.1/local.settings.json").AppSettings;
             var client = new RestClient(_apiEndPoint);
             var request = new RestRequest("/", Method.GET);
             request.AddHeader("Content-Type", "application/json");

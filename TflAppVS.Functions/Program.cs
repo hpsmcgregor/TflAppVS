@@ -10,9 +10,8 @@ namespace TflAppVS.Functions
 
             foreach(var status in statuses)
             {
-                Console.WriteLine($"{status.Id}, {status.StatusSeverity}");
+                Console.WriteLine($"{status.Id}, {status.StatusSeverityDescription}");
             }
-            Console.ReadLine();
         }
     }
 }
