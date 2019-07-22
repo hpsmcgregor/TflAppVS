@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace TflAppVS.Functions.TflApis
 {
-    public class ColourHelper
+    public static class ColourHelper
     {
         private static Dictionary<string, Rgb> _tubeColourRGBDictionary = new Dictionary<string, Rgb>();
 

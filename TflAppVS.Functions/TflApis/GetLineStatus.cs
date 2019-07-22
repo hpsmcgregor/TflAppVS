@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace TflAppVS.Functions.TflApis
 {
-    public class GetLineStatus
+    public static class GetLineStatus
     {
         //private readonly string _apiEndPoint = "https://api.tfl.gov.uk/line/mode/tube/status?detail=true";
         private static readonly string _apiEndPoint = "https://api.tfl.gov.uk/line/mode/tube,overground,dlr,tflrail/status";
