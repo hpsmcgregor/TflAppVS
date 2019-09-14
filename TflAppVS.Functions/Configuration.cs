@@ -2,7 +2,7 @@
 using System.IO;
 using Newtonsoft.Json;
 
-namespace TflAppVS.Configuration
+namespace TflAppVS.Functions
 {
     public class Configuration
     {
