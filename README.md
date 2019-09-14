@@ -5,3 +5,5 @@ Initial fetch tfl data api based off Volkan Paksoy's [tfl apps](https://volkanpa
 
 Currently displays line status on a console app.
 Gui is under development.
+
+Requires a local.settings.json file with app_id and app_key string values (available from the tfl api) in the TflAppVs.Functions root and currently needs to be copied to output directory.
