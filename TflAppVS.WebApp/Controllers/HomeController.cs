@@ -11,7 +11,7 @@ namespace TflAppVS.WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        public List<Functions.TflApis.LineStatusDto> FetchedStatuses => Functions.TflApis.GetLineStatus.GetStatuses();
+        public List<Functions.TflApis.LineStatusDto> FetchedStatuses => Functions.TflApis.LineStatus.GetStatuses();
 
         public List<StatusDto> DisplayStatuses;
 
