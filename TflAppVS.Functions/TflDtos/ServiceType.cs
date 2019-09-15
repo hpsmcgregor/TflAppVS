@@ -2,8 +2,8 @@
 {
     internal class Servicetype
     {
-        internal string type { get; set; }
-        internal string name { get; set; }
-        internal string uri { get; set; }
+        internal string Type { get; set; }
+        internal string Name { get; set; }
+        internal string Uri { get; set; }
     }
 }

@@ -6,14 +6,14 @@ namespace TflAppVS.Functions.TflDtos
     internal class TflLineInfo
     {
         [JsonProperty("$type")]
-        internal string type { get; set; }
-        internal string id { get; set; }
-        internal string name { get; set; }
-        internal string modeName { get; set; }
-        internal DateTime created { get; set; }
-        internal DateTime modified { get; set; }
-        internal LineStatus[] lineStatuses { get; set; }
-        internal object[] routeSections { get; set; }
-        internal Servicetype[] serviceTypes { get; set; }
+        public string Type { get; set; }
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public string ModeName { get; set; }
+        public DateTime Created { get; set; }
+        public DateTime Modified { get; set; }
+        public LineStatus[] LineStatuses { get; set; }
+        public object[] RouteSections { get; set; }
+        public Servicetype[] ServiceTypes { get; set; }
     }
 }

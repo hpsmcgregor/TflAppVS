@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 using System.Linq;
+using RestSharp;
 
 namespace TflAppVS.Functions.TflApis
 {
@@ -13,16 +14,24 @@ namespace TflAppVS.Functions.TflApis
         {
             var config = new Configuration("./local.settings.json").AppSettings;
 
+            //var client = new RestClient(_apiEndPoint);
+            //var request = new RestRequest("/", Method.GET);
+            //request.AddHeader("Content-Type", "application/json");
+            //request.AddQueryParameter("app_id", config["app_id"]);
+            //request.AddQueryParameter("app_key", config["app_key"]);
+            //var response = (RestResponse)client.Execute(request);
+
+            //var tflResponse = JsonConvert.DeserializeObject<List<TflDtos.TflLineInfo>>(response.Content);
             var tflResponse = JsonConvert.DeserializeObject<List<TflDtos.TflLineInfo>>(new ApiHelper(config, _apiEndPoint).GetRequest());
 
             var lineInfoList = tflResponse.Select(t =>
                 new LineStatusDto()
                 {
-                    Id = t.id,
-                    Name = t.name,
-                    Reason = t.lineStatuses[0].reason,
-                    StatusSeverityDescription = t.lineStatuses[0].statusSeverityDescription,
-                    StatusSeverity = t.lineStatuses[0].statusSeverity
+                    Id = t.Id,
+                    Name = t.Name,
+                    Reason = t.LineStatuses[0].Reason,
+                    StatusSeverityDescription = t.LineStatuses[0].StatusSeverityDescription,
+                    StatusSeverity = t.LineStatuses[0].StatusSeverity
                 }).ToList();
 
             return lineInfoList;

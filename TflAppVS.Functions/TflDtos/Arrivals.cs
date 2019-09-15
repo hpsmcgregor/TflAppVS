@@ -3,11 +3,11 @@ namespace TflAppVS.Functions.TflDtos
 {
     public class Arrivals
     {
-        public string CurrentLocation;
+        public string currentLocation;
         public string destinationName;
         public string destinationNaptanId;
         public string direction;
-        public string expectedArrival;
+        public DateTime expectedArrival;
         public string lineId;
         public string lineName;
         public string modeName;
@@ -15,9 +15,9 @@ namespace TflAppVS.Functions.TflDtos
         public string operationType;
         public string platformName;
         public string stationName;
-        public string timeToLive;
-        public string timeToStation;
-        public string timestamp;
+        public DateTime timeToLive;
+        public int timeToStation;
+        public DateTime timestamp;
         public string towards;
         public string vehicleId;
     }

@@ -3,12 +3,12 @@ namespace TflAppVS.Functions.TflDtos
 {
     internal class LineStatus
     {
-        internal string type { get; set; }
-        internal int id { get; set; }
-        internal int statusSeverity { get; set; }
-        internal string statusSeverityDescription { get; set; }
-        internal string reason { get; set; }
-        internal DateTime created { get; set; }
-        internal object[] validityPeriods { get; set; }
+        internal string Type { get; set; }
+        internal int Id { get; set; }
+        internal int StatusSeverity { get; set; }
+        internal string StatusSeverityDescription { get; set; }
+        internal string Reason { get; set; }
+        internal DateTime Created { get; set; }
+        internal object[] ValidityPeriods { get; set; }
     }
 }

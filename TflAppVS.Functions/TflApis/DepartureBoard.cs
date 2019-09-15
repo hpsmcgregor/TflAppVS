@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Newtonsoft.Json;
 
 namespace TflAppVS.Functions.TflApis
@@ -14,7 +15,7 @@ namespace TflAppVS.Functions.TflApis
             _apiEndPoint = $"https://api.tfl.gov.uk/StopPoint/{config["stationId"]}/Arrivals?mode={config["tflType"]}";
 
             var tflResponse = JsonConvert.DeserializeObject<List<TflDtos.Arrivals>>(new ApiHelper(config, _apiEndPoint).GetRequest());
-            return tflResponse;
+            return tflResponse.Where(a => a.destinationNaptanId == config["destinationId"]).OrderBy(x => x.expectedArrival).ToList();
         }
     }
 }

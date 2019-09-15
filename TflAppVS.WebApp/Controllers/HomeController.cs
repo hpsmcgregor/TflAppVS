@@ -12,29 +12,54 @@ namespace TflAppVS.WebApp.Controllers
     public class HomeController : Controller
     {
         public List<Functions.TflApis.LineStatusDto> FetchedStatuses => Functions.TflApis.LineStatus.GetStatuses();
+        public List<Functions.TflDtos.Arrivals> FetchedArrivals => new Functions.TflApis.DepartureBoard().GetDepartureBoard();
 
-        public List<StatusDto> DisplayStatuses;
+
+        public List<StatusDto> Statuses;
+        public List<ArrivalsDto> Arrivals;
+        public TflDto TflDto;
 
         public HomeController()
         {
-            DisplayStatuses = new List<StatusDto>();
+            Statuses = new List<StatusDto>();
+            Arrivals = new List<ArrivalsDto>();
+            TflDto = new TflDto();
 
-            foreach(var status in FetchedStatuses)
+            foreach(var fetchedStatus in FetchedStatuses)
             {
-                var dStatus = new StatusDto();
-                dStatus.Id = status.Id;
-                dStatus.Name = status.Name;
-                dStatus.StatusSeverity = status.StatusSeverity;
-                dStatus.StatusSeverityDescription = status.StatusSeverityDescription;
-                dStatus.Reason = status.Reason;
-                dStatus.LineColour = status.LineColour;
-                DisplayStatuses.Add(dStatus);
+                var status = new StatusDto();
+                status.Id = fetchedStatus.Id;
+                status.Name = fetchedStatus.Name;
+                status.StatusSeverity = fetchedStatus.StatusSeverity;
+                status.StatusSeverityDescription = fetchedStatus.StatusSeverityDescription;
+                status.Reason = fetchedStatus.Reason;
+                status.LineColour = fetchedStatus.LineColour;
+                Statuses.Add(status);
             }
+            TflDto.Statuses = Statuses;
+
+            foreach(var fetchedArrival in FetchedArrivals)
+            {
+                var arrival = new ArrivalsDto();
+                arrival.destinationName = fetchedArrival.destinationName;
+                arrival.direction = fetchedArrival.direction;
+                arrival.expectedArrival = fetchedArrival.expectedArrival.ToShortTimeString();
+                arrival.lineId = fetchedArrival.lineId;
+                arrival.lineName = fetchedArrival.lineName;
+                arrival.platformName = fetchedArrival.platformName;
+                arrival.stationName = fetchedArrival.stationName;
+                arrival.timestamp = fetchedArrival.timestamp.ToShortTimeString();
+                arrival.timeToLive = fetchedArrival.timeToLive.ToShortTimeString();
+                arrival.timeToStation = fetchedArrival.timeToStation;
+                Arrivals.Add(arrival);
+            }
+
+            TflDto.Arrivals = Arrivals;
         }
 
         public IActionResult Index()
         {
-            return View(DisplayStatuses);
+            return View(TflDto);
         }
 
 
