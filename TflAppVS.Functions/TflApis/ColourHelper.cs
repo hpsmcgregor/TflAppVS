@@ -13,7 +13,7 @@ namespace TflAppVS.Functions.TflApis
         {
             _tubeColourRGBDictionary = new Dictionary<string, Rgb>();
 
-            string coloursJson = File.ReadAllText("./resources/colours.json");
+            string coloursJson = File.ReadAllText("./resources/Colours.json");
             var rgbColours = JsonConvert.DeserializeObject<List<RgbColourDto>>(coloursJson);
 
             //var tubeColours = JArray.Parse(json);

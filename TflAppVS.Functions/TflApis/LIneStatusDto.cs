@@ -11,7 +11,7 @@
         {
             get
             {
-                return ColourHelper.GetRGBColour(this.Id);
+                return ColourHelper.GetRGBColour(Id);
             }
         }
     }

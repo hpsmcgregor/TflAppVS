@@ -12,9 +12,9 @@
     @foreach (var s in Model)
     {
     <tr>
-        <td bgcolor="rgb(@s.LineColour.R,@s.LineColour.G,@s.LineColour.B)">@s.Name</td>
+        <td style="background-color:rgb(@s.LineColour.R, @s.LineColour.G, @s.LineColour.B);">@s.Name</td>
         <td>@s.StatusSeverityDescription</td>
-        <td>@s.Reason</td>
+        @*<td>@s.Reason</td>*@
     </tr>
     }
 </table>
