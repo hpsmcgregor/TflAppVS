@@ -7,5 +7,7 @@ namespace TflAppVS.WebApp.Models
     {
         public List<StatusDto> Statuses;
         public List<ArrivalsDto> Arrivals;
+        public string StationName;
+        public Functions.Rgb LineColour;
     }
 }

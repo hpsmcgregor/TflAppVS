@@ -4,6 +4,6 @@ namespace TflAppVS.Functions.TflDtos
 {
     internal class TflResponse
     {
-        internal List<TflLineInfo> LineInfo { get; set; }
+        public List<TflLineInfo> LineInfo { get; set; }
     }
 }

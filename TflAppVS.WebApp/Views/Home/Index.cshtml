@@ -5,9 +5,9 @@
 }
 
 <table class="table table-bordered table-responsive table-hover" style="font-family:arial;">
-    <tr style="background-color: rgb(65, 75, 86);
+    <tr style="background-color: rgb(@Model.LineColour.R, @Model.LineColour.G, @Model.LineColour.B);
         color: white;">
-        <th>Trains</th>
+        <th>Trains from @Model.StationName</th>
         <th>Due</th>
     </tr>
     @foreach(var a in Model.Arrivals)

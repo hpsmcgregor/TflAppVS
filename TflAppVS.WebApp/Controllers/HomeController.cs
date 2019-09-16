@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TflAppVS.WebApp.Models;
 using TflAppVS.Functions;
+using Newtonsoft.Json;
 
 namespace TflAppVS.WebApp.Controllers
 {
@@ -14,18 +15,23 @@ namespace TflAppVS.WebApp.Controllers
         public List<Functions.TflApis.LineStatusDto> FetchedStatuses => Functions.TflApis.LineStatus.GetStatuses();
         public List<Functions.TflDtos.Arrivals> FetchedArrivals => new Functions.TflApis.DepartureBoard().GetDepartureBoard();
 
-
         public List<StatusDto> Statuses;
         public List<ArrivalsDto> Arrivals;
         public TflDto TflDto;
 
         public HomeController()
         {
+            var config = new Functions.Configuration("./local.settings.json").AppSettings;
+
             Statuses = new List<StatusDto>();
             Arrivals = new List<ArrivalsDto>();
-            TflDto = new TflDto();
+            TflDto = new TflDto
+            {
+                StationName = config["stationName"],
+                LineColour = JsonConvert.DeserializeObject<Rgb>($"{{\"R\":\"{config["lineColourR"]}\", \"G\":\"{config["lineColourG"]}\", \"B\":\"{config["lineColourB"]}\"}}")
+            };
 
-            foreach(var fetchedStatus in FetchedStatuses)
+            foreach (var fetchedStatus in FetchedStatuses)
             {
                 var status = new StatusDto();
                 status.Id = fetchedStatus.Id;
