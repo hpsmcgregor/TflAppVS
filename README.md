@@ -15,6 +15,11 @@ example for local.settings.json:
     "app_id": "",
     "app_key": "",
     "stationId": "",
-    "tflType":  ""
+    "stationName": "",
+    "lineColourR": "",
+    "lineColourG": "",
+    "lineColourB": "",
+    "destinationId": "",
+    "tflType": ""
 }
 ```
