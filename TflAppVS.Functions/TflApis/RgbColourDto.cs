@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace TflAppVS.Functions.TflApis
+﻿namespace TflAppVS.Functions.TflApis
 {
     public class RgbColourDto
     {

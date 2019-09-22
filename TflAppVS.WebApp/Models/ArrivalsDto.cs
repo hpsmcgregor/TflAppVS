@@ -1,5 +1,4 @@
-﻿using System;
-namespace TflAppVS.WebApp.Models
+﻿namespace TflAppVS.WebApp.Models
 {
     public class ArrivalsDto
     {
