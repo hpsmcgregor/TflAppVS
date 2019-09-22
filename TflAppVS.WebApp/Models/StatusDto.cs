@@ -1,5 +1,4 @@
-﻿using System;
-using TflAppVS.Functions;
+﻿using TflAppVS.Functions;
 
 namespace TflAppVS.WebApp.Models
 {
@@ -11,5 +10,7 @@ namespace TflAppVS.WebApp.Models
         public string StatusSeverityDescription { get; set; }
         public string Reason { get; set; }
         public Rgb LineColour { get; set; }
+        public Rgb BgColour { get; set; }
+        public Rgb TxtColour { get; set; }
     }
 }

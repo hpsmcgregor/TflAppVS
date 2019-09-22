@@ -30,13 +30,27 @@
     
     @foreach (var s in Model.Statuses)
     {
+    @*@bgColour:rbg(255, 255, 255);
+    @txtColour:rgb(0, 0, 0);
+    @if(s.StatusSeverity == 9)
+    {
+        @bgColour:rgb(255, 211, 41);
+        @txtColour:rbg(255,255,255);
+    }
+    @elseif(s.StatusSeverity <= 7)
+    {
+        @bgColour:rgb(220, 36, 31);
+        @txtColour:rbg(255,255,255);
+    }*@
     <tr>
         <td style="background-color:rgb(@s.LineColour.R, @s.LineColour.G, @s.LineColour.B);
             color:white;
             font-weight:bold;">
             @s.Name
         </td>
-        <td>@s.StatusSeverityDescription</td>
+        <td style="background-color:rgba(@s.BgColour.R, @s.BgColour.G, @s.BgColour.B, 0.7);
+            color:rgb(@s.TxtColour.R,@s.TxtColour.G,@s.TxtColour.B);">
+            @s.StatusSeverityDescription</td>
         @*<td>@s.Reason</td>*@
     </tr>
     }
