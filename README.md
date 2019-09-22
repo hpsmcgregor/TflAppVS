@@ -7,7 +7,7 @@ TflAppVs.Functions project currently displays line status on a console app when 
 
 TflAppVs.WebApp project currently displays a table with tfl line and status.
 
-Requires a local.settings.json file with string values for app_id and app_key (available from the tfl api), and station informatiom for departure board. All id's are naptan Ids. This file needs to be placed in the TflAppVs.Functions and the TflAppVs.WebApp roots and currently needs to be copied to output directory for the functions project.
+Requires a local.settings.json file with string values for app_id and app_key (available from the tfl api), and station information for departure board. All ids are naptan Ids. This file needs to be placed in the TflAppVs.Functions and the TflAppVs.WebApp roots and currently needs to be copied to output directory for the functions project.
 
 example of local.settings.json:
 ```
